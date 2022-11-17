@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 120px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 26px;
+}
+
+button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 26px;
+    border-radius: 16px;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: lightblue;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 26px;
+}
+
+
+.quiz-container{
+    position: relative;
+    height: 200px;
+    margin-top: 40px;
+}
