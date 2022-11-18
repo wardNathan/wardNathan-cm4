@@ -6,7 +6,7 @@ const option1 = document.getElementById("option1");
 const option2 = document.getElementById("option2");
 const option3 = document.getElementById("option3");
 const option4 = document.getElementById("option4");
-const inputButton = document.getElementsByClassName("button");
+const inputButton = document.getElementById("options");
 const hide = document.getElementsByClassName('hide');
 const intro = document.getElementById('intro');
 var timer;
@@ -41,7 +41,7 @@ const myQuestions = [
             c: "parenthesis",
             d: "square brackets"
         },
-        correctAnswer: "b"
+        correctAnswer: "curly brackets"
     },
     {
         question: "Arrays in JavaScript can be used to store ______.",
@@ -51,7 +51,7 @@ const myQuestions = [
             c: "booleans",
             d: "all of the above"
         },
-        correctAnswer: "d"
+        correctAnswer: "all of the above"
     },
     {
         question: "String values must be enclosed within _____ when being assigned to variables.",
@@ -78,8 +78,7 @@ const myQuestions = [
 function startQuiz() {
     startTimer()
     loadQuestions()
-    nextQuestion()
-    console.log
+    submitAnswer()
 }
 
 start.addEventListener('click', (document) => {
@@ -95,94 +94,30 @@ function loadQuestions() {
     option4.innerText = myQuestions[index].answers.d
 }
 
-function nextQuestion() {
-    if (inputButton='click') {
+function submitAnswer(event) {
+    if (event.target.innerText === myQuestions[index].correctAnswer) {
+        timerCount += 5;
+    } else {
+        timerCount -= 10;
+    }
         index++;
-        console.log
+        loadQuestions()
+    if (event.target.innerText === myQuestions[index].correctAnswer) {
+        timerCount += 5;
+    } else {
+        timerCount -= 10;
     }
-}
+        index++;
+        loadQuestions()
+    // if ([index = 4]) {
+    //     clearInterval(timerCount);
+    // }
 
-function recordResponse() {
-    if (answers === correctAnswer) {
-        loadQuestions()
-    }
-    else if (answers !== correctAnswer) {
-        loadQuestions()
-    }
+    console.log
 }
 
 function checkResults() {
 }
 
-//why doesn't this work like myQuestions?
-// was trying to consolidate so I didnt have to write out functions like loadQuestion2
-/*
-const buttonPress = [
-    {
-        option1
-    },
-    {
-        option2
-    },
-    {
-        option3
-    },
-    {
-        option4
-    }
-];
-*/
-// trying to cycle through array
-/*
-function question2() {
-    quizContainer.innerText = myQuestions[index + 1].question
-    option1.innerText = myQuestions[index + 1].answers.a
-    option2.innerText = myQuestions[index + 1].answers.b
-    option3.innerText = myQuestions[index + 1].answers.c
-    option4.innerText = myQuestions[index + 1].answers.d
-}
-
-function question3() {
-    quizContainer.innerText = myQuestions[index + 2].question
-    option1.innerText = myQuestions[index + 2].answers.a
-    option2.innerText = myQuestions[index + 2].answers.b
-    option3.innerText = myQuestions[index + 2].answers.c
-    option4.innerText = myQuestions[index + 2].answers.d
-}
-*/
-// was trying to cycle through the index but it would keep skipping to #2 in the index
-/*
-function loadQuestion2() {
-    option1.addEventListener("click", question2);
-    option2.addEventListener("click",  question2);
-    option3.addEventListener("click", question2);
-    option4.addEventListener("click", question2);
-}
-
-function loadQuestion3() {
-    option1.addEventListener("click", question3);
-    option2.addEventListener("click",  question3);
-    option3.addEventListener("click", question3);
-    option4.addEventListener("click", question3);
-}
-*/
-// trying to hide the buttons at the start screen, just have no idea what I can put
-// in the () for conditional statements maybe like a boolean for if its display is
-// none giving it false/true?
-/*
-if (start = style.display = 'none') {
-    hide.style.display = "block";
-} else (start = style.display != 'none') {
-    hide.style.display = 'none';
-}
-
-//another attempt
-if (start='click') {
-    hide.style.display = 'block';
-}
-*/
-// function endQuiz() {
-//     if (timer = 0)
-// }
-
 startButton.addEventListener("click", startQuiz);
+inputButton.addEventListener('click', submitAnswer);
