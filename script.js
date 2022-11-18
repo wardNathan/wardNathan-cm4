@@ -102,13 +102,6 @@ function submitAnswer(event) {
     }
         index++;
         loadQuestions()
-    if (event.target.innerText === myQuestions[index].correctAnswer) {
-        timerCount += 5;
-    } else {
-        timerCount -= 10;
-    }
-        index++;
-        loadQuestions()
     // if ([index = 4]) {
     //     clearInterval(timerCount);
     // }
