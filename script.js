@@ -2,11 +2,13 @@ const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const timerElement = document.getElementById('timer');
 const startButton = document.getElementById('start');
-const option1 = document.getElementById("option1")
-const option2 = document.getElementById("option2")
-const option3 = document.getElementById("option3")
-const option4 = document.getElementById("option4")
-
+const option1 = document.getElementById("option1");
+const option2 = document.getElementById("option2");
+const option3 = document.getElementById("option3");
+const option4 = document.getElementById("option4");
+const inputButton = document.getElementsByClassName("button");
+const hide = document.getElementsByClassName('hide');
+const intro = document.getElementById('intro');
 var timer;
 var timerCount = 80;
 var index = 0;
@@ -73,6 +75,45 @@ const myQuestions = [
     }
 ];
 
+function startQuiz() {
+    startTimer()
+    loadQuestions()
+    nextQuestion()
+    console.log
+}
+
+start.addEventListener('click', (document) => {
+    start.style.display = 'none';
+    intro.style.display = 'none';
+});
+
+function loadQuestions() {
+    quizContainer.innerText = myQuestions[index].question
+    option1.innerText = myQuestions[index].answers.a
+    option2.innerText = myQuestions[index].answers.b
+    option3.innerText = myQuestions[index].answers.c
+    option4.innerText = myQuestions[index].answers.d
+}
+
+function nextQuestion() {
+    if (inputButton='click') {
+        index++;
+        console.log
+    }
+}
+
+function recordResponse() {
+    if (answers === correctAnswer) {
+        loadQuestions()
+    }
+    else if (answers !== correctAnswer) {
+        loadQuestions()
+    }
+}
+
+function checkResults() {
+}
+
 //why doesn't this work like myQuestions?
 // was trying to consolidate so I didnt have to write out functions like loadQuestion2
 /*
@@ -91,24 +132,6 @@ const buttonPress = [
     }
 ];
 */
-
-function startQuiz() {
-    startTimer()
-    loadQuestions()
-
-}
-start.addEventListener('click', () => {
-    start.style.display = 'none';
-});
-
-function loadQuestions() {
-    quizContainer.innerText = myQuestions[index].question
-    option1.innerText = myQuestions[index].answers.a
-    option2.innerText = myQuestions[index].answers.b
-    option3.innerText = myQuestions[index].answers.c
-    option4.innerText = myQuestions[index].answers.d
-}
-
 // trying to cycle through array
 /*
 function question2() {
@@ -127,15 +150,6 @@ function question3() {
     option4.innerText = myQuestions[index + 2].answers.d
 }
 */
-function recordResponse() {
-    if (answers === correctAnswer) {
-        loadQuestions()
-    }
-    else if (answers !== correctAnswer) {
-        loadQuestions
-    }
-}
-
 // was trying to cycle through the index but it would keep skipping to #2 in the index
 /*
 function loadQuestion2() {
@@ -152,9 +166,21 @@ function loadQuestion3() {
     option4.addEventListener("click", question3);
 }
 */
-function checkResults() {
+// trying to hide the buttons at the start screen, just have no idea what I can put
+// in the () for conditional statements maybe like a boolean for if its display is
+// none giving it false/true?
+/*
+if (start = style.display = 'none') {
+    hide.style.display = "block";
+} else (start = style.display != 'none') {
+    hide.style.display = 'none';
 }
 
+//another attempt
+if (start='click') {
+    hide.style.display = 'block';
+}
+*/
 // function endQuiz() {
 //     if (timer = 0)
 // }
