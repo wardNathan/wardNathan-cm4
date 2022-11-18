@@ -105,7 +105,6 @@ function submitAnswer(event) {
     // if ([index = 4]) {
     //     clearInterval(timerCount);
     // }
-
     console.log
 }
 
