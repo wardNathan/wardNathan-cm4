@@ -100,8 +100,8 @@ function submitAnswer(event) {
     } else {
         timerCount -= 10;
     }
-        index++;
-        loadQuestions()
+    index++;
+    loadQuestions()
     // if ([index = 4]) {
     //     clearInterval(timerCount);
     // }
